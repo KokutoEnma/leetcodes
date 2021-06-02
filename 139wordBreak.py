@@ -1,18 +1,36 @@
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         
+
+        """
+        forward version 2
+        """
+#         dp = [False]*(len(s)+1)
+#         dp[0] = True
+        
+#         for i in range(len(s)+1):
+#             for w in wordDict:
+#                 if s[i:i+len(w)] == w and dp[i]:
+#                     dp[i+len(w)] = True
+                        
+            
+                
+        
+#         return dp[-1]
+        
+        
         """
         forward
         """
-        dp = [False]*(len(s)+1)
-        dp[0] = True
+#         dp = [False]*(len(s)+1)
+#         dp[0] = True
         
-        for i in range(len(s)+1):
-            for j in range(i, len(s)+1):
-                if s[i:j] in wordDict and dp[i]:
-                    dp[j] = True
+#         for i in range(len(s)+1):
+#             for j in range(i, len(s)+1):
+#                 if s[i:j] in wordDict and dp[i]:
+#                     dp[j] = True
         
-        return dp[-1]
+#         return dp[-1]
         
         
         
