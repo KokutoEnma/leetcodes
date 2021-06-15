@@ -15,6 +15,7 @@ class Solution:
                 curr2 = curr2.next
             curr_size += 1
 
+        # important corner case
         if curr_size == n:
             return head.next
 
