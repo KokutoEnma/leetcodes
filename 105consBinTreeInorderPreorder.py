@@ -41,3 +41,39 @@ class Solution:
             return root
 
         return helper()
+
+    """
+    node 3
+    helper(3)
+    left(3)
+            node 9
+            left helper(9)
+                return None connect left
+            inorder pop 9
+            right helper(3)
+                return None connect right
+            <-return node 9 connect left
+    inorder pop 3
+    right helper(None)
+        node 20
+        left helper(20)
+            node 15 
+            left helper(15)
+                return None connect Left
+            inorder pop 15
+            right helper(20)
+                return None connect right
+            <-return node 15 connect left
+        inorder pop 20
+        right helper(None)
+            node 7
+            left helper(7)
+                return None connect left
+            inorder pop 7
+            right helper(None)
+                return None connect right
+            <-return None connect right
+        return node 20 connect right
+    return node 3 connect right
+
+    """
