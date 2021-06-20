@@ -1,0 +1,48 @@
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+        """
+        bottom up
+        """
+
+        dp = [[False]*(len(p)+1) for _ in range(len(s)+1)]
+
+        # the last one s="" p="" is always true
+
+        dp[-1][-1] = True
+
+        for i in range(len(s), -1, -1):
+            for j in range(len(p)-1, -1, -1):
+                first_match = i < len(s) and p[j] in {s[i], '.'}
+
+                if j+1 < len(p) and p[j+1] == '*':
+                    dp[i][j] = dp[i][j+2] or first_match and dp[i+1][j]
+                else:
+                    dp[i][j] = first_match and dp[i+1][j+1]
+
+        return dp[0][0]
+
+        """
+        top down approach does not work in iterative implementation
+        because * need to consider 0 times or more times...
+        
+        recursion topdown
+        """
+
+#         dp = {}
+
+#         def check(i, j):
+#             if (i,j) not in dp:
+#                 if j==len(p):
+#                     dp[i,j] = i==len(s)
+#                 else:
+#                     first_match = i<len(s) and p[j] in {s[i], '.'}
+
+#                     if j+1<len(p) and p[j+1]=='*':
+#                         dp[i,j]=check(i, j+2) or first_match and check(i+1, j)
+#                     else:
+#                         dp[i,j]=first_match and check(i+1, j+1)
+
+
+#             return dp[i,j]
+
+#         return check(0, 0)
